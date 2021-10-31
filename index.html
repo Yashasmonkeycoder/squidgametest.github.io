@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <title>squid game</title>
+  <style type="text/css" media="all">
+    body{
+      zoom: 100%;
+    }
+    #canvas{
+      position: absolute;
+      left: 18px;
+      width: 940px;
+      height:1300px;
+      border: ridge black 6px;
+      overflow: hidden;
+    }
+    .player{
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-color: #d69c70;
+      top: 1220px;
+      left: 430px;
+      transform-origin: 50% 100%;
+    }
+    #line{
+      position: absolute;
+      top: 130px;
+      border: ridge red 4px;
+      width: 100%;
+    }
+    #navigation{
+      font-size: 40px;
+      width: 450px;
+      height: 400px;
+      position: absolute;
+      top: 75%;
+      left: 25%;
+      border: solid black 2px;
+      border-radius: 100px;
+    }
+    #left,#right,#up,#down{
+      width: 100px;
+      height: 100px;
+      background-image: linear-gradient(to right,#8cc3d1,#4b5ec7);
+      text-align: center;
+      font-weight: 20px;
+      position: absolute;
+      border: ridge #9b8b6f 4px;
+      border-radius: 40px;
+    }
+    #left{
+      left:0%;
+      top: 23%;
+    }
+    #right{
+      left: 75%;
+      top: 23%;
+    }
+    #up{
+      left:39%;
+      top: -10%;
+    }
+    #down{
+      left:39%;
+      top: 60%;
+    }
+  </style>
+</head>
+<body ondblclick="zoom()" id="body">
+  <div id="canvas">
+    <h1 id="line"> </h1>
+    <h3 id="player" class="player" style="background-color:red;"> </h3>
+    <h3 id="1" class="player"> </h3>
+    <h3 id="2" class="player"> </h3>
+    <h3 id="3" class="player"> </h3>
+    <h3 id="4" class="player"> </h3>
+    <h3 id="5" class="player"> </h3>
+  </div>
+  <div id="navigation">
+    <h3 id="up" onclick="up()">↑</h3>
+    <h3 id="down" onclick="down()">↓</h3>
+    <h3 id="left" onclick="left()">←</h3>
+    <h3 id="right" onclick="right()">→</h3>
+  </div>
+</body>
+</html>
+<script type="text/javascript" charset="utf-8">
+  
+  var leftt = 430;
+  var topp = 1220;
+  todo = "run";
+  
+  function up(){
+    if(leftt >= 0 && topp >= 0 && leftt <= 860 && topp <= 1220){
+      topp -= 15;
+    }
+    document.getElementById("player").style.top = topp+"px";
+  }
+  function down(){
+    if(leftt >= 0 && topp >= 0 && leftt <= 860 && topp <= 1200){
+      topp += 15;
+    }
+    document.getElementById("player").style.top = topp+"px";
+  }
+  function left(){
+    if(leftt >= 0 && topp >= 0 && leftt <= 860 && topp <= 1220){
+      leftt -= 15;
+    }
+    document.getElementById("player").style.left=leftt+"px";
+  }
+  function right(){
+    if(leftt >= 0 && topp >= 0 && leftt <= 860 && topp <= 1220){
+      leftt += 15;
+    }
+    document.getElementById("player").style.left=leftt+"px";
+  }
+  document.getElementById("1").style.left = "50px"
+  document.getElementById("2").style.left = "150px"
+  document.getElementById("3").style.left = "250px"
+  document.getElementById("4").style.left = "550px"
+  document.getElementById("5").style.left = "690px"
+  var onel = 50;
+  var onet = 1220;
+  var onne = 0;
+  var onestat = "yes"
+  var twol = 150;
+  var twot = 1220;
+  var twwo = 0;
+  var twostat = "yes"
+  var thl = 250;
+  var tht = 1220;
+  var thh = 0;
+  var thstat = "yes"
+  var fol = 550;
+  var fot = 1220;
+  var foo = 0;
+  var fostat = "yes"
+  var fil = 690;
+  var fit = 1220;
+  var fii = 0;
+  var fistat = "yes"
+  var count = 0;
+  var tostar = 0;
+  var redGreen = "no";
+  var IsRead = "no";
+  function oplayer(){
+  setInterval(function oplayer(){
+    if(onestat == "yes"  && IsRead == "no"){
+    onne = Math.floor(Math.random() * (2- 1 + 1)) + 1;
+    if(parseInt(onne) === 2){
+     // if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      onet -= 12;
+      document.getElementById("1").style.top = onet+"px";
+    }
+    if(parseInt(onne) === 1){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      onel += 12;
+      document.getElementById("1").style.left=onel+"px";
+    }
+    if(onel <= -50 || onel >= 840){
+      onestat = "no"
+    }}
+  },400);
+   setInterval(function oplayer(){
+    if(twostat == "yes"  && IsRead == "no"){
+    twwo = Math.floor(Math.random() * (3- 1 + 1)) + 1;
+    if(parseInt(twwo) === 2){
+     // if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      twot -= 12;
+      document.getElementById("2").style.top = twot+"px";
+    }
+    if(parseInt(twwo) === 1){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      twol += 12;
+      document.getElementById("2").style.left=twol+"px";
+    }
+    if(parseInt(twwo) === 3){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      twol -= 12;
+      document.getElementById("2").style.left=twol+"px";
+    }
+    if(twol <= -50 || twol >= 840){
+      twostat = "no"
+    }}
+  },500);
+  setInterval(function oplayer(){
+    if(thstat == "yes"  && IsRead == "no"){
+    thh = Math.floor(Math.random() * (2- 1 + 1)) + 1;
+    if(parseInt(thh) === 2){
+     // if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      tht -= 12;
+      document.getElementById("3").style.top = tht+"px";
+    }
+    if(parseInt(thh) === 1){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      thl += 12;
+      document.getElementById("3").style.left=thl+"px";
+    }
+    if(thl <= -50 || thl >= 840){
+      thstat = "no"
+    }}
+  },800);
+  }
+  setInterval(function oplayer(){
+    if(fostat == "yes" && IsRead == "no"){
+    foo = Math.floor(Math.random() * (2- 1 + 1)) + 1;
+    if(parseInt(foo) === 2){
+     // if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      fot -= 12;
+      document.getElementById("4").style.top = fot+"px";
+    }
+    if(parseInt(foo) === 1){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      fol += 12;
+      document.getElementById("4").style.left=fol+"px";
+    }
+    if(fol <= -50 || fol >= 840){
+      fostat = "no"
+    }}
+  },450);
+  setInterval(function oplayer(){
+    if(fistat == "yes" && IsRead == "no"){
+    fii = Math.floor(Math.random() * (3- 1 + 1)) + 1;
+    if(parseInt(fii) === 2){
+     // if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      fit -= 12;
+      document.getElementById("5").style.top = fit+"px";
+    }
+    if(parseInt(fii) === 1){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      fil += 12;
+      document.getElementById("5").style.left=fil+"px";
+    }
+    if(parseInt(fii) === 3){
+      //if(onet >= 0 && onel >= 0 && onet <= 860 && onel <= 1220){
+      fil -= 18;
+      document.getElementById("5").style.left=fil+"px";
+    }
+    if(fil <= -50 || fil >= 840){
+      fistat = "no"
+    }}
+  },400);
+  var tostart = 0;
+  function redg(){
+    setTimeout(
+    function (){
+      tostart = (Math.floor(Math.random() * (18- 9 + 1)) + 9)*1000
+      count += 1
+    if(count%2==0){
+      document.getElementById("body").style.backgroundColor="#c74d4d"
+      redGreen = "yes"
+      IsRead = "yes"
+      console.log("red")
+    }
+    else{
+      document.getElementById("body").style.backgroundColor="lime"
+      redGreen =  "no"
+      IsRead = "no"
+      console.log("lime")
+    }
+    console.log(tostart)
+    redg();
+    },tostart);
+  }
+  redg();
+  oplayer();
+  function zoom(){
+    document.getElementsByTagName("BODY").style.zoom="100%"
+  }
+</script>
